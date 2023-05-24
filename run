@@ -47,7 +47,6 @@ SHOULD_ENABLE_DEBUGGER="${NEOHABITAT_SHOULD_ENABLE_DEBUGGER:=false}"
 SHOULD_ENABLE_CRON="${NEOHABITAT_SHOULD_ENABLE_CRON:=true}"
 SHOULD_RUN_BRIDGE="${NEOHABITAT_SHOULD_RUN_BRIDGE:=true}"
 SHOULD_RUN_NEOHABITAT="${NEOHABITAT_SHOULD_RUN_NEOHABITAT:=true}"
-SHOULD_RUN_PUSHSERVER="${NEOHABITAT_SHOULD_RUN_PUSHSERVER:=true}"
 SHOULD_UPDATE_SCHEMA="${NEOHABITAT_SHOULD_UPDATE_SCHEMA:=false}"
 PORT_RESV_TCP="${NEOHABITAT_PORT_RESV_TCP:=9000}"
 #HABIPROXY_ELKO_HOST="${NEOHABITAT_HABIPROXY_ELKO_HOST:=neohabitat}"
@@ -88,13 +87,6 @@ function start_bridge() {
     -t debug 2>&1 | tee bridge.log
 }
 
-function start_pushserver() {
-  if [[ "${NODE_ENV}" == "production" ]]; then
-    (cd "${GIT_BASE_DIR}/pushserver" && npm run start 2>&1 | tee ../pushserver.log)
-  else
-    (cd "${GIT_BASE_DIR}/pushserver" && npm run debug 2>&1 | tee ../pushserver.log)
-  fi
-}
 
 function start_elko_server() {
   mvn package
@@ -133,11 +125,6 @@ if [ "${SHOULD_RUN_BRIDGE}" == true ]; then
   else
     start_bridge
   fi
-fi
-
-# Starts the Exhibit's HTML push server if requested.
-if [ "${SHOULD_RUN_PUSHSERVER}" == true ]; then
-  start_pushserver &
 fi
 
 # Starts the Habitat Elko server if requested.

@@ -45,7 +45,6 @@ services:
       - NEOHABITAT_SHOULD_ENABLE_DEBUGGER=true
       - NEOHABITAT_SHOULD_RUN_BRIDGE=true
       - NEOHABITAT_SHOULD_RUN_NEOHABITAT=true
-#      - NEOHABITAT_SHOULD_RUN_PUSHSERVER=true
       - NEOHABITAT_SHOULD_UPDATE_SCHEMA=true
       - NEOHABITAT_SERVER_HOST=neohabitat
       - NEOHABITAT_SERVER_PORT=1337
@@ -55,7 +54,7 @@ services:
       - PUSH_SERVER_CONFIG=./config.dev.yml
       - PUSH_SERVER_MONGO_URL=mongodb://neohabitatmongo
     ports:
-      - "80:1701"
+      - "1701:1701"
     depends_on:
       - neohabitatmongo
     networks:
