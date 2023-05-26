@@ -31,7 +31,7 @@ const DefDefs   = {
 var  Defaults   = DefDefs;
 
 try {
-    var userDefs = JSON.parse(File.readFileSync("defaults.elko"));
+    var userDefs = JSON.parse(File.readFileSync(__dirname + "/defaults.elko"));
     Defaults = {
             context:    userDefs.context    || DefDefs.context,
             listen:     userDefs.listen     || DefDefs.listen,
@@ -41,7 +41,7 @@ try {
             realm:      userDefs.realm      || DefDefs.realm,
             trace:      userDefs.trace      || DefDefs.trace};
 } catch (e) {
-    console.log("Missing/invalid defaults.elko configuration file. Proceeding with factory defaults.");
+    console.error("Missing/invalid defaults.elko configuration file. Proceeding with factory defaults.", e);
 }
 
 const Argv       = require('yargs')
@@ -1603,7 +1603,8 @@ const Listener = Net.createServer(function(client) {
     try {
         createServerConnection(client.port, client.host, client);
     } catch (e) {
-        Trace.error(e.toString());
+      console.error("Failed to create server connection for", client.port, client.host);
+      Trace.error(e.toString());
     }
 }).listen(ListenPort, ListenHost);
 
