@@ -1,10 +1,9 @@
 NeoHabitat.org: The Neoclassical Habitat Server Project
 =======================================================
 
-[![Build Status](https://travis-ci.org/frandallfarmer/neohabitat.svg?branch=master)](https://travis-ci.org/frandallfarmer/neohabitat)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/frandallfarmer/neohabitat/blob/master/LICENSE)
 [![Twitter Follow](https://img.shields.io/twitter/follow/NeoHabitatProj.svg?style=social&label=Follow)](https://twitter.com/NeoHabitatProj)
-[![Slack](http://slack.neohabitat.org/badge.svg)](http://slack.neohabitat.org/)
+[![Slack](https://img.shields.io/badge/slack-http%3A%2F%2Fslack.neohabitat.org-brightgreen)](http://slack.neohabitat.org/)
 
 We're recreating [Habitat](https://en.wikipedia.org/wiki/Habitat_(video_game)), the world's first MMO, using modern technology.  We'd love it if you joined us!
 
@@ -19,18 +18,18 @@ With all that out of the way, here's how to get started:
 
 - If you want to use Habitat with a real C64, please switch over to [these instructions](https://github.com/frandallfarmer/neohabitat/blob/master/README-RealC64.md) for making disks and using modern connection hardware.
 
-- You can also use our [web based client](http://app.neohabitat.org) to connect via a browser. Just skip to **Step 2** below to learn how to get ingame.
+- You can also use our [web based client](http://habitat.themade.org) to connect via a browser. Just skip to **Step 2** below to learn how to get ingame.
 
 ### Step 1 - Download and Install either the Windows or OSX Habitat package (which comes with VICE, the C64 emulator)
 
 **Windows**
 
-- Download the [NeoHabitat installer](https://github.com/StuBlad/neohabitat-installer/releases/download/1.0/NeoHabitatInstaller.exe)
+- Download the [NeoHabitat installer](https://github.com/StuBlad/neohabitat-installer/releases/download/1.1/NeoHabitatInstaller1.1.exe)
 
 - Run the installer.
- - Tested on Windows 10 Home x64 but it should be fine on older versions of Windows.
+ - Tested on Windows 11 Home v22H2 but it should be fine on older versions of Windows.
 
-- Double-click the **NeoHabitat** icon on your desktop or in the Start Menu.
+- Check the **Launch NeoHabitat** box at the end of the installation, or Double-click the **NeoHabitat** icon on your desktop or in the Start Menu.
 
 - Go to Step 2!
 
@@ -49,7 +48,7 @@ With all that out of the way, here's how to get started:
 - Install VICE and `nc` (netcat) via your package manager
 - Extract the Windows release of [Neohabitat.zip](https://github.com/frandallfarmer/neohabitat-doc/blob/master/installers/Neohabitat.zip?raw=true) to get the `.d64` files and `fliplist-C64.vfl`
 - Run the VICE C64 emulator with these options set:  
-  `x64 -rsuser -rsuserdev 0 -rsdev1 '|nc 52.87.109.252 1986' -rsuserbaud 1200 -flipname fliplist-C64.vfl Habitat-Boot.d64`
+  `x64 -rsuser -rsuserdev 0 -rsdev1 '|nc 20.3.249.92 1986' -rsuserbaud 1200 -flipname fliplist-C64.vfl Habitat-Boot.d64`
 - There is a bug in current versions of VICE which breaks this network support (https://sourceforge.net/p/vice-emu/bugs/1356). Versions including r38928 and earlier work.
 
 ### Step 2 - Login and play!
@@ -78,7 +77,7 @@ If all goes well, you'll materialize in downtown Populopolis:
 
 Welcome to NeoHabitat! There's a whole lot you can do here and thousands of exotic places to visit.
 
-Before you go anywhere, **we highly recommend opening up our [Docent support software](http://app.neohabitat.org)**. It's a browser based guide that'll help you navigate NeoHabitat, learn the controls and teach you about the history of the world. It's interactive and will update as you move around without you having to lift a finger.
+Before you go anywhere, **we highly recommend opening up our [Docent support software](http://habitat.themade.org)**. It's a browser based guide that'll help you navigate NeoHabitat, learn the controls and teach you about the history of the world. It's interactive and will update as you move around without you having to lift a finger.
 
 If you are using the web based client mentioned earlier, the Docent support software is already active!
 
@@ -90,6 +89,8 @@ Your default controls for NeoHabitat are mapped to the numpad and Right-CTRL.
 * Right-Ctrl + Numpad 2 initiates the **"DO"** comamnd
 * Right-Ctrl + Numpad 6 initiates the **"GET"** command
 * Right-Ctrl + Numpad 4 initiates the **"PUT"** command
+
+There is also a [NeoHabitat Controls cheat sheet](https://github.com/StuBlad/neohabitat-installer/blob/master/Neohabitat/NeoHabitatControls.pdf) which tells you all of the keys you need to know. 
 
 For the most authentic experience, you'll also need to **hook up a joystick**, whether it's physical or virtual. To set one up, **open the Settings menu** then select **Joystick**. Habitat expects a joystick in **port #1**.
 
@@ -111,8 +112,6 @@ Help!
 -----
 
 If you're having trouble getting NeoHabitat working, don't worry, we're here to help! Come [join our Slack](http://slack.neohabitat.org) and join our **#troubleshooting** room.
-
-If running the file as administrator does not work then double click on the file named "x64" to start the VICE emulator. Then drag and drop the "Habitat-Boot.d64" file onto the emulator and proceed as normally.
 
 If you encounter a glitch whilst playing NeoHabitat, please check to see if it's been filed as an [issue](https://github.com/frandallfarmer/neohabitat/issues). If it hasn't, we'd appreciate it if you let us know what happened so we can investigate.
 
